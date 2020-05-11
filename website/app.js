@@ -25,17 +25,17 @@ const updateUI = async () => {
   }
 };
 const drawSpeedometer = (speed) => {
-  var canvas = document.getElementById("myCanvas");
-  var context = canvas.getContext("2d");
+  let canvas = document.getElementById("myCanvas");
+  let context = canvas.getContext("2d");
   context.clearRect(0, 0, canvas.width, canvas.height);
-  var centerX = canvas.width / 2;
-  var centerY = canvas.height / 2;
-  var radius = canvas.height / 2 - 20;
+  let centerX = canvas.width / 2;
+  let centerY = canvas.height / 2;
+  let radius = canvas.height / 2 - 30;
 
   context.beginPath();
   context.arc(centerX, centerY, radius, Math.PI * 0.1, Math.PI * -1.1, true);
 
-  var gradience = context.createRadialGradient(
+  let gradience = context.createRadialGradient(
     centerX,
     centerY,
     radius - radius / 2,
@@ -43,7 +43,7 @@ const drawSpeedometer = (speed) => {
     centerY,
     radius - radius / 8
   );
-  gradience.addColorStop(0, "#ff9700");
+  gradience.addColorStop(0, "#6282b5");
   gradience.addColorStop(1, "#000000");
 
   context.fillStyle = gradience;
@@ -52,11 +52,11 @@ const drawSpeedometer = (speed) => {
   context.restore();
 
   context.beginPath();
-  context.strokeStyle = "#ffff00";
+  context.strokeStyle = "white";
   context.translate(centerX, centerY);
-  var increment = 5;
+  let increment = 5;
   context.font = "15px Helvetica";
-  for (var i = -18; i <= 18; i++) {
+  for (let i = -18; i <= 18; i++) {
     angle = (Math.PI / 30) * i;
     sineAngle = Math.sin(angle);
     cosAngle = -Math.cos(angle);
@@ -84,7 +84,7 @@ const drawSpeedometer = (speed) => {
     context.stroke();
     context.closePath();
   }
-  var numOfSegments = speed / increment;
+  let numOfSegments = speed / increment;
   numOfSegments = numOfSegments - 18;
   angle = (Math.PI / 30) * numOfSegments;
   sineAngle = Math.sin(angle);
@@ -93,7 +93,7 @@ const drawSpeedometer = (speed) => {
   pointY = cosAngle * ((3 / 4) * radius);
 
   context.beginPath();
-  context.strokeStyle = "#000000";
+  context.strokeStyle = "white";
   context.arc(0, 0, 19, 0, 2 * Math.PI, true);
   context.fill();
   context.closePath();
