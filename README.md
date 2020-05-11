@@ -2,10 +2,14 @@
 
 - Open your command window and press git clone
 
-# install node packages
+# Install node packages
 
-- press npm i
+- Press npm i
 
-# to run the server
+# To run the server
 
-- press node server.js
+- Press node server.js
+
+# Open in the browser
+
+- Go to http://localhost:5000/ in your browser.
